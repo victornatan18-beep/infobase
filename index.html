@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El costo del paro: cuáles son los sectores más afectados - Infobae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- ✅ ESTILOS: pasta css/style.css -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- TOP BAR (países) - só desktop -->
+<div class="top-bar">
+  <div class="top-bar-paises">
+    <a href="#">Argentina</a><a href="#">Colombia</a><a href="#">España</a>
+    <a href="#">México</a><a href="#">Perú</a><a href="#">Centroamérica</a>
+    <a href="#">Mundo</a><a href="#">Venezuela</a>
+  </div>
+  <div class="top-bar-data">19 Feb, 2026</div>
+</div>
+
+<header>
+
+  <!-- =====================================================
+       HEADER MOBILE (igual ao Infobae original)
+       ☰ 🔍  —  infobae  —  👤
+       ===================================================== -->
+  <div class="header-mobile">
+    <div class="hm-left">
+      <!-- Botão hamburguer -->
+      <button onclick="abrirMenu()" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <!-- Busca -->
+      <button aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Logo centralizado -->
+    <span class="hm-logo">info<span>bae</span></span>
+    <!-- Avatar / conta -->
+    <div class="hm-right">
+      <div class="hm-avatar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.8" width="18" height="18">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra "Hace X minutos | Trends ..." — só mobile -->
+  <div class="mobile-trends-bar">
+    <span class="trends-time">Hace 6 minutos</span>
+    <span class="trends-label">Trends</span>
+    <div class="mobile-trends-links">
+      <a href="#">Cámara de Diputados</a>
+      <a href="#">Floppy Tesouro</a>
+      <a href="#">Dólar</a>
+      <a href="#">Fate</a>
+    </div>
+  </div>
+
+  <!-- HEADER DESKTOP -->
+  <div class="header-principal">
+    <a href="#" class="logo">info<span>bae</span></a>
+    <div class="header-acoes">
+      <span class="header-busca">Buscar en todo el sitio 🔍</span>
+      <button class="btn-registrar">REGISTRARME</button>
+      <button class="btn-entrar">INICIAR SESIÓN</button>
+    </div>
+  </div>
+
+  <!-- Menu mobile deslizante (painel lateral) -->
+  <div class="menu-mobile-overlay" id="menu-overlay" onclick="fecharMenu()"></div>
+  <nav class="menu-mobile-panel" id="menu-panel">
+    <div class="menu-mobile-header">
+      <span class="menu-mobile-logo">info<span>bae</span></span>
+      <button class="menu-mobile-close" onclick="fecharMenu()">✕</button>
+    </div>
+    <a class="menu-btn-login" href="#">INICIAR SESIÓN / REGISTRARME</a>
+    <a href="#">Últimas Noticias</a>
+    <a href="#">Política</a>
+    <a href="#">tecnología</a>
+    <a href="#">Deportes</a>
+    <a href="#">Teleshow</a>
+    <a href="#">Sociedad</a>
+    <a href="#">Salud</a>
+    <a href="#">Tecno</a>
+    <a href="#">Turismo</a>
+    <a href="#">Educación</a>
+    <a href="#">Cultura</a>
+    <a href="#">Virales</a>
+    <a href="#">Autos</a>
+  </nav>
+
+  <!-- Navegação desktop - fundo branco -->
+  <nav class="nav-white nav-branca">
+    <ul>
+      <li><a href="#">Últimas Noticias</a></li><li><a href="#">Política</a></li>
+      <li><a href="#">Leyes</a></li><li class="ativo active"><a href="#">tecnología</a></li>
+      <li><a href="#">Deportes</a></li><li><a href="#">Tenis argentino</a></li>
+      <li><a href="#">Teleshow</a></li><li><a href="#">Sociedad</a></li>
+      <li><a href="#">Policiales</a></li><li><a href="#">Perros y gatos</a></li>
+      <li><a href="#">Turismo</a></li><li><a href="#">Tendencias</a></li>
+      <li><a href="#">Educación</a></li><li><a href="#">Podcasts</a></li>
+      <li><a href="#">Video</a></li><li><a href="#">Tecno</a></li>
+      <li><a href="#">Virales</a></li><li><a href="#">Salud</a></li>
+      <li><a href="#">Autos</a></li>
+    </ul>
+  </nav>
+
+  <!-- Navegação desktop - fundo escuro -->
+  <nav class="nav-dark nav-escura">
+    <ul>
+      <li><a href="#">Entretenimiento</a></li><li><a href="#">The Economist</a></li>
+      <li><a href="#">The Washington Post</a></li><li><a href="#">Realeza</a></li>
+      <li><a href="#">Opinión</a></li><li><a href="#">Venezuela</a></li>
+      <li><a href="#">Malditos Nerds</a></li><li><a href="#">Judiciales</a></li>
+      <li><a href="#">Chacra y Campo</a></li><li><a href="#">Movant LogComex</a></li>
+      <li><a href="#">Estar Mejor</a></li><li><a href="#">Qué puedo ver</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+<div class="pagina-wrap">
+
+  <!-- Breadcrumb desktop -->
+  <div class="breadcrumb"><a href="#">tecnología</a></div>
+  <!-- Breadcrumb mobile (exibe "ECONOMÍA ›" no estilo Infobae) -->
+  <div class="breadcrumb-mobile">tecnología</div>
+
+  <div class="layout-artigo">
+
+    <article>
+
+      <h1 class="titulo-artigo">
+  <strong>ÚLTIMA HORA:</strong> Elon Musk habilita 2.000 suscripciones GRATIS de Starlin para Argentina.
+  <span class="subtitulo-headline">REVISÁ SI SOS ELEGIBLE</span>
+</h1>
+
+      <p class="subtitulo-artigo">Durante las últimas horas comenzó a circular una noticia que está generando un enorme impacto en todo el país: Elon Musk habría autorizado un programa piloto en Argentina para que 2.000 personas puedan probar gratis una nueva versión de la internet satelital de Starlink durante un período de hasta dos años.</p>
+
+      <div class="meta-artigo">
+        <span class="meta-data">19 Feb, 2026 02:22 p.m. EST</span>
+      </div>
+
+
+      <!--
+      ╔══════════════════════════════════════════════════════╗
+      ║  📷 IMAGEM 1 — FOTO PRINCIPAL DO ARTIGO             ║
+      ║  ✏️  Arquivo: images/foto-hero.jpg                  ║
+      ║  📐 Tamanho ideal: 900 x 420 pixels                 ║
+      ║  👉 Troque o arquivo mantendo o mesmo nome!         ║
+      ╚══════════════════════════════════════════════════════╝
+      -->
+      <figure class="figura-hero">
+        <img src="images/foto-hero.png"
+             alt="El paro dejó pérdidas por USD 489 millones"
+             onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&q=80'">
+        <p class="legenda-foto">Elon Musk impulsa un programa piloto en Argentina que permitirá a 2.000 personas probar gratis una nueva versión de Starlink durante hasta dos años. La iniciativa busca evaluar el rendimiento de la tecnología en distintos entornos del país.</p>
+      </figure>
+
+      <div class="texto-artigo">
+
+        <p>La iniciativa forma parte de una serie de pruebas que la compañía está realizando en distintos mercados estratégicos, con el objetivo de evaluar el rendimiento de una nueva generación de tecnología satelital enfocada en <strong>mayor velocidad, menor latencia y mejor estabilidad</strong>, incluso en zonas donde hoy el acceso a internet es limitado o inestable.</p>
+
+<h2>Argentina, elegida como país clave para las pruebas</h2>
+
+<p>Según fuentes cercanas al proyecto, Argentina fue seleccionada por su diversidad geográfica y por la alta demanda de soluciones de conectividad fuera de los grandes centros urbanos. Regiones rurales, zonas de difícil acceso y áreas con infraestructura limitada serían parte central de este experimento.</p>
+
+<p>El plan consiste en habilitar <strong>2.000 accesos gratuitos</strong> para usuarios seleccionados, quienes podrán utilizar la conexión sin costo durante hasta <strong>24 meses</strong>, a cambio de permitir que el sistema recopile datos técnicos de rendimiento y experiencia de uso.</p>
+
+<p>Esto permitiría a los ingenieros de la compañía optimizar la red antes de lanzar oficialmente esta nueva versión de Starlink a nivel masivo.</p>
+
+<h2>Una nueva generación de internet satelital</h2>
+
+<p>A diferencia de la versión actual del servicio, esta nueva fase de pruebas incorporaría:</p>
+
+<p><strong>Mayor velocidad de descarga y subida</strong></p>
+<p><strong>Menor latencia</strong> para videollamadas, juegos online y streaming</p>
+<p><strong>Estabilidad reforzada</strong> incluso en condiciones climáticas adversas</p>
+<p><strong>Mejor eficiencia energética</strong> del equipo receptor</p>
+
+<p>En términos simples, se trata de una evolución importante de la tecnología ya conocida, con el objetivo de acercarse cada vez más a la experiencia de una fibra óptica tradicional, pero sin depender de cableado terrestre.</p>
+
+
+        <!--
+        ╔══════════════════════════════════════════════════════╗
+        ║  📷 IMAGEM 2 — FOTO DO MEIO DO ARTIGO               ║
+        ║  ✏️  Arquivo: images/foto-artigo.jpg                ║
+        ║  📐 Tamanho ideal: 900 x 320 pixels                 ║
+        ║  👉 Troque o arquivo mantendo o mesmo nome!         ║
+        ╚══════════════════════════════════════════════════════╝
+        -->
+        <figure class="figura-inline">
+          <img src="images/starlink.jpg"
+               alt="Sin transporte público, el costo del paro se más que duplicó"
+               onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=900&q=80'">
+          <p class="legenda-foto">Sin transporte público, el costo del paro se más que duplicó y superó los USD 480 millones. <em>(Maximiliano Luna)</em></p>
+        </figure>
+
+        <h2>¿Quiénes podrían ser seleccionados?</h2>
+
+<p>Aunque la empresa no publicó todavía un listado oficial de requisitos cerrados, trascendió que se priorizaría a determinados perfiles de usuarios.</p>
+
+<p>Entre los principales grupos contemplados se encuentran:</p>
+
+<p><strong>Personas que vivan en zonas rurales o alejadas</strong></p>
+<p><strong>Hogares con conectividad deficiente o inestable</strong></p>
+<p><strong>Usuarios dispuestos a brindar feedback sobre su experiencia</strong></p>
+<p><strong>Familias, estudiantes y trabajadores que dependan fuertemente de internet</strong></p>
+
+<p>El objetivo principal es probar la red en <strong>contextos reales y exigentes</strong>, donde la conectividad representa una necesidad crítica.</p>
+
+<h2>Por qué Elon Musk estaría ofreciendo este acceso gratuito</h2>
+
+<p>Lejos de ser un simple acto promocional, esta estrategia responde a una lógica clara: cuanto más datos reales se obtengan, más rápido se podrá perfeccionar el sistema.</p>
+
+<p>En palabras de personas cercanas al proyecto, Musk busca acelerar el desarrollo de una infraestructura global capaz de ofrecer internet de alta calidad en cualquier rincón del planeta. Argentina, por su tamaño y variedad de escenarios, representa un laboratorio ideal.</p>
+
+<p>Además, este tipo de pruebas permiten detectar <strong>fallas, cuellos de botella y oportunidades de mejora</strong> que no siempre aparecen en entornos controlados.</p>
+
+<h2>Impacto potencial para miles de argentinos</h2>
+
+<p>De confirmarse oficialmente este programa, el impacto podría ser enorme.</p>
+
+<p><strong>Estudiantes con mejor acceso a educación online</strong></p>
+<p><strong>Emprendedores que podrán trabajar desde cualquier lugar</strong></p>
+<p><strong>Familias conectadas con servicios digitales</strong></p>
+<p><strong>Zonas rurales con nuevas oportunidades de desarrollo</strong></p>
+
+<p>Para muchos, sería la primera vez contando con una <strong>conexión rápida y estable</strong>.</p>
+
+<h2>Cómo prepararse para participar</h2>
+
+<p>Esta puede ser <strong>la oportunidad de tu vida</strong> para tener internet satelital de última generación <strong>100% gratis durante dos años</strong>.</p>
+
+<p>Participar es simple: solo tenés que responder un breve <strong>quiz con algunas preguntas rápidas</strong>. Con esa información, el sistema analiza tu perfil automáticamente y define si estás apto para recibir una de las <strong>2.000 suscripciones disponibles</strong>.</p>
+
+<p>Los cupos son <strong>extremadamente limitados</strong> y se están asignando en este momento.</p>
+
+<p><strong>Hacé clic ahora en el botón verde y verificá si todavía hay lugar para vos.</strong></p>
+
+<h2>Una oportunidad que no se ve todos los días</h2>
+
+<p>Probar una tecnología de última generación sin costo durante dos años es algo poco común. Miles de personas ya están intentando acceder y se espera que la demanda <strong>supere ampliamente las 2.000 vacantes</strong>.</p>
+
+<p>Si el programa resulta exitoso, no se descarta que la compañía amplíe el número de beneficiarios o extienda el modelo a otros países de la región.</p>
+
+
+
+      </div>
+
+<!-- ✅ Cole este CSS dentro do <head> da sua página -->
+<style>
+  .btn-garantir-wrapper {
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-garantir {
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .btn-garantir:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+  }
+
+  .btn-garantir:active {
+    transform: translateY(0);
+  }
+</style>
+
+<!-- ✅ Cole este HTML onde quiser que o botão apareça -->
+<div style="text-align: center; margin: 16px 0;">
+  <a id="url-redirecionamento" href="https://SUA-URL-AQUI.com" class="btn-garantir-wrapper">
+    <button class="btn-garantir">VER SI SOY ELEGIBLE</button>
+  </a>
+</div>
+      
+      <div class="secao-tags">
+        <h4>Temas Relacionados</h4>
+        <div class="lista-tags">
+          <a href="#" class="tag">paro general</a>
+          <a href="#" class="tag">cgt</a>
+          <a href="#" class="tag">energía</a>
+          <a href="#" class="tag">consumo masivo</a>
+          <a href="#" class="tag">educación</a>
+          <a href="#" class="tag">últimas noticias</a>
+        </div>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sb-bloco">
+        <div class="sb-titulo">Te Recomendamos</div>
+        <ol class="lista-rec">
+
+          <li class="item-rec">
+            <span class="rec-numero">1</span>
+            <span class="rec-texto">Trenes, colectivos, subtes y vuelos: qué gremios adherirán al paro general desde esta medianoche</span>
+            <!-- 📷 MINIATURA 1 → images/rec-1.jpg (100x100px) -->
+            <div class="rec-miniatura"><img src="images/rec-1.jpg" alt="Rec 1" onerror="this.src='https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?w=150&q=80'"></div>
+          </li>
+
+          <li class="item-rec">
+            <span class="rec-numero">2</span>
+            <span class="rec-texto">Fate anunció su cierre definitivo: la histórica marca argentina de neumáticos despidió a sus 920 empleados</span>
+            <!-- 📷 MINIATURA 2 → images/rec-2.jpg (100x100px) -->
+            <div class="rec-miniatura"><img src="images/rec-2.jpg" alt="Rec 2" onerror="this.src='https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=150&q=80'"></div>
+          </li>
+
+          <li class="item-rec">
+            <span class="rec-numero">3</span>
+            <span class="rec-texto">Cuánto cobra una empleada doméstica por hora en febrero de 2026, según cada categoría</span>
+            <!-- 📷 MINIATURA 3 → images/rec-3.jpg (100x100px) -->
+            <div class="rec-miniatura"><img src="images/rec-3.jpg" alt="Rec 3" onerror="this.src='https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=150&q=80'"></div>
+          </li>
+
+          <li class="item-rec">
+            <span class="rec-numero">4</span>
+            <span class="rec-texto">A cuánto llegarán el dólar y la inflación a fin de año, según los principales analistas</span>
+            <!-- 📷 MINIATURA 4 → images/rec-4.jpg (100x100px) -->
+            <div class="rec-miniatura"><img src="images/rec-4.jpg" alt="Rec 4" onerror="this.src='https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=150&q=80'"></div>
+          </li>
+
+          <li class="item-rec">
+            <span class="rec-numero">5</span>
+            <span class="rec-texto">"China fue el detonante": alertan que el caso Fate puede ser la señal de una ola de crisis industrial</span>
+            <!-- 📷 MINIATURA 5 → images/rec-5.jpg (100x100px) -->
+            <div class="rec-miniatura"><img src="images/rec-5.jpg" alt="Rec 5" onerror="this.src='https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?w=150&q=80'"></div>
+          </li>
+
+        </ol>
+      </div>
+
+      <div class="lo-ultimo">
+        <div class="lu-cabecalho">
+          <span class="lu-titulo">Lo Último</span>
+          <span class="lu-pais">| Argentina</span>
+        </div>
+        <ul class="lu-lista">
+          <li class="lu-item">Estudiantes negocia con Martín Demichelis tras la sorpresiva salida de Eduardo Domínguez</li>
+          <li class="lu-item">El caso de la falsa penitenciaria que convocaba a aspirantes y decía tener contactos</li>
+          <li class="lu-item">La inflación mayorista desaceleró a 1,7% en enero y acumuló 26,4% en los últimos doce meses</li>
+          <li class="lu-item">El Senado dictaminó el nuevo Régimen Penal Juvenil que baja la edad de imputabilidad a 14 años</li>
+          <li class="lu-item">"Gritá lo que quieras": rescataron a siete adultos mayores de un geriátrico en La Matanza</li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="secao-titulo">Últimas Noticias <a href="#" class="ver-mais">Ver más &rsaquo;</a></div>
+  <div class="grid-noticias">
+    <!-- 📷 NOTÍCIA 1 → images/noticias-1.jpg (400x250px) -->
+    <div class="card-noticia"><img class="card-img" src="images/noticias-1.jpg" alt="Noticia 1" onerror="this.src='https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80'"><div class="card-categoria">Economía</div><h3>La inflación mayorista desaceleró a 1,7% en enero y acumuló 26,4% en los últimos doce meses</h3><p>El índice exhibió una reducción de 0,7 puntos respecto de diciembre de 2025</p></div>
+    <!-- 📷 NOTÍCIA 2 → images/noticias-2.jpg (400x250px) -->
+    <div class="card-noticia"><img class="card-img" src="images/noticias-2.jpg" alt="Noticia 2" onerror="this.src='https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=400&q=80'"><div class="card-categoria">Economía</div><h3>El dólar volvió a caer y tocó un nuevo mínimo en casi cinco meses</h3><p>La divisa mayorista cayó a $1.389, precio más bajo desde el 30 de septiembre</p></div>
+    <!-- 📷 NOTÍCIA 3 → images/noticias-3.jpg (400x250px) -->
+    <div class="card-noticia"><img class="card-img" src="images/noticias-3.jpg" alt="Noticia 3" onerror="this.src='https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400&q=80'"><div class="card-categoria">Economía</div><h3>Álvarez Agis: "Si se abriera completamente la economía, solo sobreviviría el 15% del empleo argentino"</h3></div>
+    <!-- 📷 NOTÍCIA 4 → images/noticias-4.jpg (400x250px) -->
+    <div class="card-noticia"><img class="card-img" src="images/noticias-4.jpg" alt="Noticia 4" onerror="this.src='https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?w=400&q=80'"><div class="card-categoria">Economía</div><h3>El Gobierno denunció que un gremio le hizo un boicot a Flybondi y lo dejó sin combustible</h3></div>
+    <!-- 📷 NOTÍCIA 5 → images/noticias-5.jpg (400x250px) -->
+    <div class="card-noticia"><img class="card-img" src="images/noticias-5.jpg" alt="Noticia 5" onerror="this.src='https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?w=400&q=80'"><div class="card-categoria">Economía</div><h3>Fate reabrirá la fábrica durante la conciliación: busca aplacar la tensión política</h3></div>
+  </div>
+
+  <div class="secao-titulo" style="border-bottom-color:#0070c0;"><span style="color:#0070c0;">DEPORTES</span><a href="#" class="ver-mais">Ver más &rsaquo;</a></div>
+  <div class="grid-editorial">
+    <div class="ed-principal">
+      <!-- 📷 DEPORTES PRINCIPAL → images/deportes-principal.jpg (700x440px) -->
+      <img class="ed-principal-img" src="images/deportes-principal.jpg" alt="Deportes" onerror="this.src='https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=700&q=80'">
+      <h3>Estudiantes negocia con Martín Demichelis tras la sorpresiva salida de Eduardo Domínguez</h3>
+    </div>
+    <ul class="ed-lista-sub">
+      <li>El gol ilegal que generó polémica en los cuartos de final de hockey sobre hielo de los Juegos Olímpicos de Invierno</li>
+      <li>Franco Colapinto cerró su pretemporada de F1 con un rendimiento que ilusiona: giró más de 100 vueltas para Alpine</li>
+      <li>Los secretos de la revolucionaria innovación de Ferrari que sorprendió en la Fórmula 1</li>
+      <li>"Tenemos algunas ideas para seguir mejorando": el aviso de Franco Colapinto tras su cierre de pretemporada</li>
+    </ul>
+  </div>
+
+  <div class="secao-titulo" style="border-bottom-color:#c0007b;"><span style="color:#c0007b;">TELESHOW</span><a href="#" class="ver-mais">Ver más &rsaquo;</a></div>
+  <div class="grid-editorial">
+    <div class="ed-principal">
+      <!-- 📷 TELESHOW PRINCIPAL → images/teleshow-principal.jpg (700x440px) -->
+      <img class="ed-principal-img" src="images/teleshow-principal.jpg" alt="Teleshow" onerror="this.src='https://images.unsplash.com/photo-1540479859555-17af45c78602?w=700&q=80'">
+      <h3>El descargo de Cinthia Fernández contra Moria Casán que abre un interrogante sobre su futuro</h3>
+    </div>
+    <ul class="ed-lista-sub">
+      <li>Luli Fernández recordó los inicios de su carrera en los medios: "Cuando sos prolija, las cosas se ven prolijas"</li>
+      <li>El video inédito de Mauro Icardi cuando cumplió 10 años: la palabra de su hermana Ivana</li>
+      <li>Las vacaciones de Floppy Tesouro y Salvador Becciu en el Caribe: Mar, relax y romance</li>
+      <li>Soledad Pastorutti saludó a su hija Regina por su cumpleaños: "El amor es cada vez más grande"</li>
+    </ul>
+  </div>
+
+  <div class="america-titulo">INFOBAE AMÉRICA</div>
+  <div class="grid-noticias" style="margin-bottom:48px;">
+    <!-- 📷 AMERICA 1 → images/america-1.jpg (400x250px) -->
+    <div class="card-noticia"><img class="card-img" src="images/america-1.jpg" alt="América 1" onerror="this.src='https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?w=400&q=80'"><h3>La administración tecnócrata de Gaza anunció el despliegue de 5.000 policías en 60 días para reemplazar a Hamas</h3></div>
+    <!-- 📷 AMERICA 2 → images/america-2.jpg (400x250px) -->
+    <div class="card-noticia"><img class="card-img" src="images/america-2.jpg" alt="América 2" onerror="this.src='https://images.unsplash.com/photo-1604881991720-f91add269bed?w=400&q=80'"><h3>Hamas refuerza su control en Gaza con nombramientos clave y recaudación fiscal</h3></div>
+    <!-- 📷 AMERICA 3 → images/america-3.jpg (400x250px) -->
+    <div class="card-noticia"><img class="card-img" src="images/america-3.jpg" alt="América 3" onerror="this.src='https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400&q=80'"><h3>El liderazgo de Nayib Bukele registra el mayor respaldo presidencial en América Latina</h3></div>
+    <!-- 📷 AMERICA 4 → images/america-4.jpg (400x250px) -->
+    <div class="card-noticia"><img class="card-img" src="images/america-4.jpg" alt="América 4" onerror="this.src='https://images.unsplash.com/photo-1495556650867-99590cea3657?w=400&q=80'"><h3>Rodrigo Paz se reunirá con Donald Trump en el marco de la cumbre de Miami el 7 de marzo</h3></div>
+    <!-- 📷 AMERICA 5 → images/america-5.jpg (400x250px) -->
+    <div class="card-noticia"><img class="card-img" src="images/america-5.jpg" alt="América 5" onerror="this.src='https://images.unsplash.com/photo-1619597818677-f1edcc8c04f3?w=400&q=80'"><h3>Netanyahu advirtió al régimen de Irán que cualquier ataque contra Israel recibirá una respuesta contundente</h3></div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-interno">
+    <div class="footer-logo-txt">info<span>bae</span></div>
+    <div class="footer-colunas">
+      <div class="fc"><h4>Secciones</h4><a href="#">América</a><a href="#">Colombia</a><a href="#">España</a><a href="#">Estados Unidos</a><a href="#">México</a><a href="#">Perú</a><a href="#">Centroamérica</a><a href="#">Últimas Noticias</a><a href="#">RSS</a></div>
+      <div class="fc"><h4>Contáctenos</h4><a href="#">Redacción</a><a href="#">Empleo</a></div>
+      <div class="fc"><h4>Contacto comercial</h4><a href="#">Argentina</a><a href="#">Colombia</a><a href="#">España</a><a href="#">México</a><a href="#">Perú</a><a href="#">Media Kit</a></div>
+      <div class="fc"><h4>Legales</h4><a href="#">Términos y condiciones</a><a href="#">Política de privacidad</a><a href="#">Política de cookies</a></div>
+    </div>
+    <div class="footer-rodape">
+      <span>© 2026 Infobae. Todos los derechos reservados.</span>
+      <div class="redes-sociais">
+        <a href="#" class="icone-social">f</a><a href="#" class="icone-social">𝕏</a>
+        <a href="#" class="icone-social">in</a><a href="#" class="icone-social">▶</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ✅ JAVASCRIPT: pasta js/main.js -->
+<script>
+// Menu mobile - igual ao Infobae
+function abrirMenu() {
+  document.getElementById('menu-panel').classList.add('aberto');
+  document.getElementById('menu-overlay').classList.add('aberto');
+  document.body.style.overflow = 'hidden';
+}
+function fecharMenu() {
+  document.getElementById('menu-panel').classList.remove('aberto');
+  document.getElementById('menu-overlay').classList.remove('aberto');
+  document.body.style.overflow = '';
+}
+// Fechar menu ao apertar ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') fecharMenu();
+});
+</script>
+</body>
+</html>
