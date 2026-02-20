@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BREAKING NEWS: Elon Musk Enables 2,000 FREE Starlink Subscriptions for Canada | CBC News</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ═══════════════════════════════════════════════════
+       HEADER CORRIGIDO — idêntico ao CBC real
+       ☰ Menu   |   ❖ CBC   |   🔍 Search  👤 Sign In
+       ═══════════════════════════════════════════════════ */
+
+    /* Esconde elementos antigos do header */
+    .utility-bar,
+    .main-nav,
+    .section-nav,
+    .hamburger,
+    .header-search,
+    .cbc-logo { display: none !important; }
+
+    /* Header branco */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      box-shadow: none;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+    .header-inner {
+      max-width: 100%;
+      padding: 0 24px;
+      height: 54px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+    }
+
+    /* ESQUERDA — ☰ Menu */
+    .hdr-left {
+      display: flex;
+      align-items: center;
+    }
+    .hdr-menu-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a1a1a;
+      font-family: 'Source Sans 3', sans-serif;
+      padding: 6px 0;
+      letter-spacing: 0.2px;
+    }
+    .hdr-menu-btn:hover { opacity: 0.7; }
+
+    /* CENTRO — ❖ CBC */
+    .hdr-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .cbc-logo-real {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+    }
+    /* Gem CBC — 4 gotas em cruz */
+    .cbc-gem-svg { width: 34px; height: 34px; }
+    .cbc-name-real {
+      font-family: 'Source Sans 3', Arial Black, sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: #C8102E;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    /* DIREITA — 🔍 Search  👤 Sign In */
+    .hdr-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 22px;
+    }
+    .hdr-action {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a1a1a;
+      font-family: 'Source Sans 3', sans-serif;
+      text-decoration: none;
+      padding: 6px 0;
+      letter-spacing: 0.2px;
+    }
+    .hdr-action:hover { opacity: 0.7; text-decoration: none; color: #1a1a1a; }
+    .hdr-action svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ─── BARRA VERMELHA NEWS ─── */
+    .cbc-news-nav {
+      background: #C8102E;
+      position: sticky;
+      top: 54px;
+      z-index: 199;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .cbc-news-nav::-webkit-scrollbar { display: none; }
+    .cbc-news-nav-inner {
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      gap: 0;
+    }
+    .cbc-news-badge {
+      font-family: 'Source Sans 3', Arial Black, sans-serif;
+      font-size: 21px;
+      font-weight: 900;
+      color: #fff;
+      padding: 9px 18px 9px 0;
+      white-space: nowrap;
+      border-right: 1px solid rgba(255,255,255,0.35);
+      margin-right: 2px;
+      flex-shrink: 0;
+      letter-spacing: -0.3px;
+    }
+    .cbc-news-nav a {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 11px 15px;
+      display: block;
+      white-space: nowrap;
+      font-family: 'Source Sans 3', sans-serif;
+      text-decoration: none;
+    }
+    .cbc-news-nav a:hover { background: rgba(0,0,0,0.12); text-decoration: none; }
+    .cbc-news-nav a.active { background: rgba(0,0,0,0.18); }
+    .cbc-more-link {
+      border: 1.5px solid rgba(255,255,255,0.75) !important;
+      border-radius: 3px;
+      margin-left: 6px;
+      padding: 6px 13px !important;
+      flex-shrink: 0;
+    }
+    .cbc-more-link:hover { background: rgba(0,0,0,0.15) !important; }
+
+    /* ─── MENU MOBILE ─── */
+    .mobile-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5); z-index: 300;
+    }
+    .mobile-overlay.open { display: block; }
+    .mobile-menu {
+      position: fixed; top: 0; left: -300px; width: 300px; height: 100%;
+      background: #fff; z-index: 400; overflow-y: auto;
+      transition: left 0.28s ease; padding-bottom: 40px;
+    }
+    .mobile-menu.open { left: 0; }
+    .mobile-menu-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px; background: #C8102E;
+    }
+    .mob-logo { font-size: 20px; font-weight: 900; color: #fff; font-family: 'Source Sans 3', sans-serif; }
+    .mobile-menu-close { background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; }
+    .mobile-menu a {
+      display: block; padding: 13px 20px; border-bottom: 1px solid #eee;
+      font-size: 15px; font-weight: 600; color: #1a1a1a; text-decoration: none;
+    }
+    .mobile-menu a:hover { background: #f5f5f5; color: #C8102E; }
+    .mobile-sign-in {
+      margin: 12px 16px; display: block; text-align: center;
+      background: #C8102E; color: #fff !important;
+      padding: 10px; border-radius: 2px; font-weight: 700;
+    }
+
+
+    /* Logo CBC oficial */
+    .cbc-logo-img {
+      height: 57px;
+      width: auto;
+      display: block;
+    }
+    /* ── MOBILE HEADER FIX ── */
+@media (max-width: 600px) {
+  .header-inner {
+    padding: 0 12px;
+    height: 48px;
+  }
+
+  .hdr-menu-btn {
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  .hdr-right {
+    gap: 10px;
+  }
+
+  .hdr-action {
+    font-size: 12px;
+    gap: 4px;
+    white-space: nowrap;   /* ← impede quebra de linha */
+  }
+
+  .hdr-action svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .cbc-logo-img {
+    height: 55px;
+  }
+
+  .cbc-news-nav {
+    top: 48px;
+  }
+}
+    /* Ajuste sidebar sticky */
+    .sidebar { top: 112px; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HEADER — ☰ Menu | ❖CBC | Search Sign In
+     ══════════════════════════════════════ -->
+<header>
+  <div class="header-inner">
+
+    <!-- Esquerda: Hamburguer + Menu -->
+    <div class="hdr-left">
+      <button class="hdr-menu-btn" onclick="abrirMenu()" aria-label="Abrir menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.3" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        Menu
+      </button>
+    </div>
+
+    <!-- Centro: Logo CBC oficial -->
+    <div class="hdr-center">
+      <a href="#" class="cbc-logo-real">
+        <img src="CBC_News-Logo_wine.svg" alt="CBC News" class="cbc-logo-img">
+      </a>
+    </div>
+
+    <!-- Direita: Search + Sign In -->
+    <div class="hdr-right">
+      <button class="hdr-action" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.3" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+        </svg>
+        Search
+      </button>
+      <a href="#" class="hdr-action">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+        Sign In
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     BARRA VERMELHA — NEWS + links
+     ══════════════════════════════════════ -->
+<nav class="cbc-news-nav">
+  <div class="cbc-news-nav-inner">
+    <span class="cbc-news-badge">NEWS</span>
+    <a href="#">Top Stories</a>
+    <a href="#">Local</a>
+    <a href="#">Climate</a>
+    <a href="#">World</a>
+    <a href="#"class="active">Canada</a>
+    <a href="#">Politics</a>
+    <a href="#">Indigenous</a>
+    <a href="#">Business</a>
+    <a href="#">The National</a>
+    <a href="#" class="cbc-more-link">More &#9660;</a>
+  </div>
+</nav>
+
+<!-- Menu Mobile -->
+<div class="mobile-overlay" id="mobile-overlay" onclick="fecharMenu()"></div>
+<nav class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-header">
+    <span class="mob-logo">CBC News</span>
+    <button class="mobile-menu-close" onclick="fecharMenu()">✕</button>
+  </div>
+  <a href="#" class="mobile-sign-in">SIGN IN / REGISTER</a>
+  <a href="#">Top Stories</a>
+  <a href="#">Canada</a>
+  <a href="#">World</a>
+  <a href="#">Politics</a>
+  <a href="#">Indigenous</a>
+  <a href="#">Business</a>
+  <a href="#">Health</a>
+  <a href="#">Entertainment</a>
+  <a href="#">Sports</a>
+  <a href="#">Radio</a>
+  <a href="#">CBC Gem</a>
+  <a href="#">Podcasts</a>
+</nav>
+
+
+<!-- ══════════════════════════════════════
+     CONTEÚDO (igual ao seu arquivo)
+     ══════════════════════════════════════ -->
+<div class="page-wrap">
+
+  <div class="warning-banner">
+    <strong>⚠️ WARNING:</strong> Highly important content about a limited number of free Starlink internet accesses in Canada. It could change the way you connect.
+  </div>
+
+  <div class="content-layout">
+    <article>
+
+      <div class="breadcrumb">
+        <a href="#">News</a><span>›</span>
+        <a href="#">Canada</a><span>›</span>
+        <a href="#">Toronto</a>
+      </div>
+
+      <h1>BREAKING NEWS: Elon Musk Enables 2,000 FREE Starlink Subscriptions for Canada – CHECK IF YOU'RE ELIGIBLE</h1>
+
+      <p class="article-deck">
+        Over the past few hours, news has been circulating that is creating a huge impact across the country: Elon Musk has reportedly authorized a pilot program in Canada allowing 2,000 people to try a new version of Starlink's satellite internet completely free for up to two years.
+      </p>
+
+      <div class="audio-note">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+        <span>The audio version of this article is generated by AI-based technology.
+        Mispronunciations can occur. We are working with our partners to continually
+        review and improve the results.</span>
+      </div>
+
+      <div class="byline">
+        <div class="byline-info">
+          <div class="byline-name"><a href="#">Mark Gollom</a></div>
+          <div class="byline-org">CBC News</div>
+          <div class="byline-time">Posted: Feb 19, 2026 10:14 AM EST &nbsp;|&nbsp; Last Updated: 1 hour ago</div>
+        </div>
+      </div>
+
+      <div class="social-share">
+        <a href="#" class="share-btn facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          <span class="label">Share</span>
+        </a>
+        <a href="#" class="share-btn twitter">
+          <svg width="14" height="14" viewBox="0 0 300 300" fill="#fff"><path d="M178.57 127.15 290.27 0h-26.46l-97.03 110.38L89.34 0H0l117.13 166.93L0 300.25h26.46l102.4-116.59 81.8 116.59h89.34M36.01 19.54H76.66l187.13 262.13h-40.66"/></svg>
+          <span class="label">Post</span>
+        </a>
+        <a href="#" class="share-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          <span class="label">Share</span>
+        </a>
+        <a href="#" class="share-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          <span class="label">Copy Link</span>
+        </a>
+      </div>
+
+      <!-- 🖼️ HERO — images/elonmusk.png (900×480 px) -->
+      <figure class="hero-figure">
+        <img src="images/elonmusk.png" alt="Elon Musk"
+          onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=900&q=80'">
+        <p class="figure-caption">
+          Elon Musk during a recent public appearance, amid discussions about Starlink's expansion and new connectivity projects around the world.
+          <span class="credit">(Chris Young/The Canadian Press)</span>
+        </p>
+      </figure>
+
+      <div class="article-body">
+
+        <p>This initiative is part of a series of tests being conducted in several strategic markets, with the goal of evaluating the performance of a new generation of satellite technology focused on higher speeds, lower latency, and better stability — even in areas where internet access is currently limited or unreliable.</p>
+        <p><strong>Canada chosen as a key country for testing</strong></p>
+        <p>According to sources close to the project, Canada was selected because of its vast geography and strong demand for connectivity solutions outside major urban centres. Rural regions, remote communities, and areas with limited infrastructure would be a central focus of this experiment.</p>
+        <p>The plan is to activate 2,000 free accesses for selected users, who will be able to use the connection at no cost for up to 24 months, in exchange for allowing the system to collect technical performance data and user experience feedback.</p>
+        <p>This will help company engineers optimize the network before officially launching this new version of Starlink on a large scale.</p>
+        <p><strong>A new generation of satellite internet</strong></p>
+        <p>Unlike the current version of the service, this new testing phase would include:</p>
+        <p>Higher download and upload speeds</p>
+        <p>Lower latency for video calls, online gaming, and streaming</p>
+        <p>Enhanced stability even in harsh weather conditions</p>
+        <p>Improved energy efficiency of the receiver equipment</p>
+        <p>In simple terms, this represents a major evolution of existing technology, aiming to get closer and closer to the experience of traditional fibre-optic internet — without relying on ground-based cables.</p>
+        <p><strong>Who could be selected?</strong></p>
+        <p>Although the company has not yet released an official list of fixed requirements, it has been reported that certain user profiles will be prioritized.</p>
+        <p>Main groups include:</p>
+        <p>People living in rural or remote areas</p>
+        <p>Households with poor or unstable connectivity</p>
+        <p>Users willing to provide feedback about their experience</p>
+        <p>Families, students, and workers who rely heavily on the internet</p>
+        <p>The main goal is to test the network in real and demanding conditions, where connectivity is a critical necessity.</p>
+
+        <!-- 🖼️ MEIO — images/starlink.jpg (860×400 px) -->
+        <figure>
+          <img src="images/starlink.jpg" alt="Starlink"
+            onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=860&q=80'">
+          <p class="figure-caption">
+            Starlink's new-generation satellite system promises ultra-fast speeds, low latency, and stable connectivity — even in remote areas.
+            <span class="credit">(Alexandra Newbould/CBC)</span>
+          </p>
+        </figure>
+
+        <p><strong>Why Elon Musk is offering free access</strong></p>
+        <p>Far from being just a promotional move, this strategy follows a clear logic: the more real-world data collected, the faster the system can be refined.</p>
+        <p>According to people close to the project, Musk wants to accelerate the development of a global infrastructure capable of delivering high-quality internet anywhere on the planet. Canada, due to its size and variety of environments, represents an ideal testing ground.</p>
+        <p>These tests also make it possible to identify failures, bottlenecks, and opportunities for improvement that may not appear in controlled environments.</p>
+        <p><strong>Potential impact for thousands of Canadians</strong></p>
+        <p>If officially confirmed, this program could have a massive impact:</p>
+        <p>Students with better access to online education</p>
+        <p>Entrepreneurs able to work from anywhere</p>
+        <p>Families connected to essential digital services</p>
+        <p>Rural communities gaining new development opportunities</p>
+        <p>For many, it could be their first time having a fast and stable internet connection.</p>
+        <p><strong>How to prepare to participate</strong></p>
+        <p>This could be the opportunity of a lifetime to have next-generation satellite internet 100% free for two years.</p>
+        <p>Participation is simple: just answer a short quiz with a few quick questions. Based on your answers, the system automatically analyzes your profile and determines whether you qualify for one of the 2,000 available subscriptions.</p>
+        <p>Spots are extremely limited and are being assigned right now.</p>
+        <p>Click the green button now and check if there's still a spot for you.</p>
+        <p><strong>An opportunity you don't see every day</strong></p>
+        <p>Trying cutting-edge technology at no cost for two years is rare. Thousands of people are already attempting to get access, and demand is expected to far exceed the 2,000 available spots.</p>
+        <p>If the program is successful, the company may expand the number of beneficiaries or extend this model to other countries in the region.</p>
+
+        <div style="text-align:center; margin:30px 0;">
+          <button style="background:#28a745;color:#fff;font-size:18px;font-weight:bold;padding:15px 40px;border:none;border-radius:8px;cursor:pointer;">
+            CHECK IF I'M ELIGIBLE
+          </button>
+        </div>
+
+        <div class="crisis-box">
+          <strong>Support resources</strong>
+          If you're in immediate danger or fear for your safety or that of others around you, please call 911. For support in your area, you can look for crisis lines and local services via the <a href="#">Ending Sexual Violence Association of Canada database</a>.
+        </div>
+
+      </div>
+
+      <!-- 🖼️ AUTOR — images/autor.jpg (60×60 px) -->
+      <div class="author-bio">
+        <div class="author-bio-avatar">
+          <img src="images/autor.jpg" alt="Mark Gollom"
+            onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=80'">
+        </div>
+        <div class="author-bio-info">
+          <h4>Mark Gollom</h4>
+          <p>Mark Gollom is a Toronto-based reporter with CBC News. He covers Canadian and U.S. politics and current affairs.</p>
+        </div>
+      </div>
+
+      <div class="tags-section">
+        <h4>Tags</h4>
+        <div class="tags-list">
+          <a href="#" class="tag">Frank Stronach</a>
+          <a href="#" class="tag">Sexual assault</a>
+          <a href="#" class="tag">Toronto</a>
+          <a href="#" class="tag">Magna International</a>
+          <a href="#" class="tag">Crime</a>
+          <a href="#" class="tag">Courts</a>
+        </div>
+      </div>
+
+      <div class="cbc-standards">
+        <a href="#">CBC's Journalistic Standards and Practices</a> &nbsp;|&nbsp;
+        <a href="#">About CBC News</a> &nbsp;|&nbsp;
+        <a href="#">Corrections and clarifications</a> &nbsp;|&nbsp;
+        <a href="#">Submit a news tip</a> &nbsp;|&nbsp;
+        <a href="#">Report error</a>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-block">
+        <div class="sidebar-title">Related Stories</div>
+
+        <!-- 🖼️ SIDEBAR 1 — images/sidebar-1.jpg (80×56 px) -->
+        <div class="related-item">
+          <img src="images/sidebar-1.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=160&q=80'">
+          <div><div class="related-item-text"><a href="#">'Like lamb to a slaughter': Woman tells court details of alleged sexual assault by Frank Stronach</a></div><div class="related-item-time">2 weeks ago</div></div>
+        </div>
+
+        <!-- 🖼️ SIDEBAR 2 — images/sidebar-2.jpg (80×56 px) -->
+        <div class="related-item">
+          <img src="images/sidebar-2.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=160&q=80'">
+          <div><div class="related-item-text"><a href="#">Montreal is mentioned in the Epstein files hundreds of times. Here's what we know</a></div><div class="related-item-time">2 weeks ago</div></div>
+        </div>
+
+        <!-- 🖼️ SIDEBAR 3 — images/sidebar-3.jpg (80×56 px) -->
+        <div class="related-item">
+          <img src="images/sidebar-3.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=160&q=80'">
+          <div><div class="related-item-text"><a href="#">Lawyer who fought against mandatory oath reacts to Alberta seeking Supreme Court ruling</a></div><div class="related-item-time">3 days ago</div></div>
+        </div>
+
+        <!-- 🖼️ SIDEBAR 4 — images/sidebar-4.jpg (80×56 px) -->
+        <div class="related-item">
+          <img src="images/sidebar-4.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=160&q=80'">
+          <div><div class="related-item-text"><a href="#">South Korean shipbuilding giant announces major boost for Ontario marine industry at Hamilton site</a></div><div class="related-item-time">1 week ago</div></div>
+        </div>
+
+        <!-- 🖼️ SIDEBAR 5 — images/sidebar-5.jpg (80×56 px) -->
+        <div class="related-item">
+          <img src="images/sidebar-5.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=160&q=80'">
+          <div><div class="related-item-text"><a href="#">Canadian men's curlers advance to Olympic gold-medal game, defeating Norway in extra end</a></div><div class="related-item-time">2 days ago</div></div>
+        </div>
+      </div>
+
+      <div class="sidebar-block">
+        <div class="sidebar-title">Trending</div>
+        <div class="trending-item"><span class="trending-num">1</span><a href="#">Stronach accuser grilled over memory on Day 2 of sex assault trial</a></div>
+        <div class="trending-item"><span class="trending-num">2</span><a href="#">Third female complainant testifying in sexual assault trial of Frank Stronach</a></div>
+        <div class="trending-item"><span class="trending-num">3</span><a href="#">Fourth female complainant testifying at sexual assault trial of Frank Stronach</a></div>
+        <div class="trending-item"><span class="trending-num">4</span><a href="#">A timeline of key events leading up to Frank Stronach's Toronto sexual assault trial</a></div>
+        <div class="trending-item"><span class="trending-num">5</span><a href="#">Billionaire Frank Stronach's sex assault trial begins</a></div>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="more-section">
+    <div class="more-section-title">More from CBC News</div>
+    <div class="stories-grid">
+      <!-- 🖼️ GRID 1 — images/grid-1.jpg (400×150 px) -->
+      <div class="story-card"><img src="images/grid-1.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&q=70'"><div class="story-card-category">Canada</div><h3><a href="#">Message from her match was 'like a robot had sent it.' How AI is changing dating apps</a></h3><div class="story-card-time">2 days ago</div></div>
+      <!-- 🖼️ GRID 2 — images/grid-2.jpg (400×150 px) -->
+      <div class="story-card"><img src="images/grid-2.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&q=70'"><div class="story-card-category">Canada</div><h3><a href="#">B.C. First Nation hopes for reconciliation as contentious land claim heads to appeal</a></h3><div class="story-card-time">3 days ago</div></div>
+      <!-- 🖼️ GRID 3 — images/grid-3.jpg (400×150 px) -->
+      <div class="story-card"><img src="images/grid-3.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&q=70'"><div class="story-card-category">Canada</div><h3><a href="#">Couple living on small pension told they don't qualify for grant to help son move home</a></h3><div class="story-card-time">3 days ago</div></div>
+      <!-- 🖼️ GRID 4 — images/grid-4.jpg (400×150 px) -->
+      <div class="story-card"><img src="images/grid-4.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&q=70'"><div class="story-card-category">Canada</div><h3><a href="#">Canadian coach won't rule Sidney Crosby out of Olympic semifinal</a></h3><div class="story-card-time">1 week ago</div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><span class="cbc-text">CBC <span class="footer-news-lbl">News</span></span></div>
+    <div class="footer-grid">
+      <div class="footer-col"><h4>News</h4><a href="#">Canada</a><a href="#">World</a><a href="#">Politics</a><a href="#">Indigenous</a><a href="#">Business</a><a href="#">Health</a></div>
+      <div class="footer-col"><h4>More</h4><a href="#">Entertainment</a><a href="#">Sports</a><a href="#">Radio</a><a href="#">Music</a><a href="#">CBC Gem</a><a href="#">Kids</a></div>
+      <div class="footer-col"><h4>Connect</h4><a href="#">Newsletters</a><a href="#">Podcasts</a><a href="#">Submit Tip</a><a href="#">Facebook</a><a href="#">Twitter / X</a><a href="#">YouTube</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="#">RSS Feeds</a><a href="#">Accessibility</a><a href="#">Digital Archives</a><a href="#">CBC Licensing</a></div>
+      <div class="footer-col"><h4>Corporate</h4><a href="#">About CBC</a><a href="#">Sitemap</a><a href="#">Reuse &amp; Permission</a><a href="#">Terms of Use</a><a href="#">Privacy</a><a href="#">Contact CBC</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CBC/Radio-Canada. All rights reserved.</span>
+      <div class="footer-legal"><a href="#">Terms of Use</a><a href="#">Privacy Policy</a><a href="#">Accessibility</a><a href="#">Reuse &amp; Permission</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
